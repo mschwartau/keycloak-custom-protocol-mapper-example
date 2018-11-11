@@ -1,0 +1,14 @@
+<!-- name of the module is important here because we use it in the changeProvider.xsl too -->
+<module xmlns="urn:jboss:module:1.3" name="hamburg.schwartau.keycloak-custom-protocol-mapper-example">
+  <resources>
+    <resource-root path="keycloak-custom-protocol-mapper-example.jar"/>
+  </resources>
+  <dependencies>
+    <!-- List the modules / jar files we depend on. That are the same we defined in the pom.xml -->
+    <module name="org.keycloak.keycloak-core"/>
+	<module name="org.keycloak.keycloak-server-spi"/>
+    <module name="org.keycloak.keycloak-server-spi-private"/>
+    <module name="org.keycloak.keycloak-services"/>
+    <module name="javax.ws.rs.api"/>
+  </dependencies>
+</module>

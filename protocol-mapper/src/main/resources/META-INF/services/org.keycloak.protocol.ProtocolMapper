@@ -1,0 +1,4 @@
+# the name of this file should not be changed, this is how the Service provider API works.
+#
+# List here all protocol mappers which should be loaded by keycloak.
+hamburg.schwartau.HelloWorldMapper
