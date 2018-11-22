@@ -101,7 +101,7 @@ get something like the following:
       }
     }
 
-The value auf our own [Hello World Token mapper](protocol-mappersrc/main/java/hamburg/schwartau/HelloWorldMapper.java) got added to the token because
+The value auf our own [Hello World Token mapper](protocol-mapper/src/main/java/hamburg/schwartau/HelloWorldMapper.java) got added to the token because
 the message 'hello world' appears in the example.message field.
 
 ## Acknowledgements
