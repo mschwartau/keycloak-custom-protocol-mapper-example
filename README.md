@@ -10,9 +10,9 @@ added to [Keycloak](https://www.keycloak.org/) via an (not yet) official [servic
 shows how this can be done.
 
 ## Entrypoints into this project
-1. data-setup: Project to configure [Keycloak](https://www.keycloak.org/) via its REST API. Configures a realm so that it uses the example protocol mapper. Contains a main Methode which can be executed against a running [Keycloak](https://www.keycloak.org/) instance.
-2. protocol-mapper: Contains the protocol mapper code. The resulting jar file will be deployed to [Keycloak](https://www.keycloak.org/). See the documentation in the code to see how it works.
-3. Dockerfile: Is based upon the official [Keycloak docker image](https://hub.docker.com/r/jboss/keycloak/). Adds the jar file containing the protocol mapper to the keycloak instance.                                   
+1. [data-setup](data-setup): Project to configure [Keycloak](https://www.keycloak.org/) via its REST API. Configures a realm so that it uses the example protocol mapper. Contains a main Methode which can be executed against a running [Keycloak](https://www.keycloak.org/) instance.
+2. [protocol-mapper](protocol-mapper): Contains the protocol mapper code. The resulting jar file will be deployed to [Keycloak](https://www.keycloak.org/). See the documentation in the code to see how it works.
+3. [Dockerfile](Dockerfile): Is based upon the official [Keycloak docker image](https://hub.docker.com/r/jboss/keycloak/). Adds the jar file containing the protocol mapper to the keycloak instance.                                   
 
 ## Try it out
 
@@ -33,7 +33,7 @@ using our scripts, because they expect a fresh keycloak database.
    This programs sets up an new example realm which uses our Hello world token mapper.
    If it has been executed, you should see the message `The data has been imported` in the console.
    Furthermore if you open the [Keycloak admin console](http://localhost:11080/auth/admin/) you should
-   see the example realm.          
+   see the example realm: ![Keycloak screenshot](images/keycloak_mapper.png?raw=true "Keycloak screenshot")          
 
 Now [Keycloak](https://www.keycloak.org/) is configured. As a next step we want to check the token.   
 
@@ -110,7 +110,6 @@ the message 'hello world' appears in the example.message field.
 
 ## Links
 - To use keycloak with an angular app, I found this example app to be helpful: https://github.com/manfredsteyer/angular-oauth2-oidc 
-- Admin Ui of keycloak: [http://localhost:11080/auth](http://localhost:11080/auth)
 - Login Page for the users: Login Url: [http://localhost:11080/auth/realms/example-realm/account](http://localhost:11080/auth/realms/example-realm/account)
 
 
