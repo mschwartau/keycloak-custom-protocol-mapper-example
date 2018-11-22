@@ -29,11 +29,11 @@ using our scripts, because they expect a fresh keycloak database.
 4. Now you can open the [Keycloak admin console](http://localhost:11080/auth/admin/) and login with username / password: admin / password.
    This initial password for the admin user were configured in our docker-compose file.
 5. You'll see that only the master realm exists currently
-6. Now execute the main class `DataSetupMain` in our `data-setup` module. This
+6. Now execute the main class `DataSetupMain` in our `data-setup` module. 
    This programs sets up an new example realm which uses our Hello world token mapper.
    If it has been executed, you should see the message `The data has been imported` in the console.
    Furthermore if you open the [Keycloak admin console](http://localhost:11080/auth/admin/) you should
-   see the example realm: ![Keycloak screenshot](images/keycloak_mapper.png?raw=true "Keycloak screenshot")          
+   see the example realm. For this realm the [hello world mapper](protocol-mappersrc/main/java/hamburg/schwartau/HelloWorldMapper.java) is configured: ![Keycloak screenshot](images/keycloak_mapper.png?raw=true "Keycloak screenshot")          
 
 Now [Keycloak](https://www.keycloak.org/) is configured. As a next step we want to check the token.   
 
