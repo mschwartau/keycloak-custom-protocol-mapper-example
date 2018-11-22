@@ -10,7 +10,7 @@ added to [Keycloak](https://www.keycloak.org/) via an (not yet) official [servic
 shows how this can be done.
 
 ## Entrypoints into this project
-1. [data-setup](data-setup): Project to configure [Keycloak](https://www.keycloak.org/) via its REST API. Configures a realm so that it uses the example protocol mapper. Contains a main Methode which can be executed against a running [Keycloak](https://www.keycloak.org/) instance.
+1. [data-setup](data-setup): Project to configure [Keycloak](https://www.keycloak.org/) via its REST API. Configures a realm so that it uses the example protocol mapper. Contains a [main method](data-setup/src/main/java/hamburg/schwartau/datasetup/bootstrap/DataSetupMain.java) which can be executed against a running [Keycloak](https://www.keycloak.org/) instance.
 2. [protocol-mapper](protocol-mapper): Contains the protocol mapper code. The resulting jar file will be deployed to [Keycloak](https://www.keycloak.org/). I tried to explain things needed in comments in the [protocol-mapper project](protocol-mapper)
 3. [Dockerfile](Dockerfile): Is based upon the official [Keycloak docker image](https://hub.docker.com/r/jboss/keycloak/). Adds the jar file containing the [protocol mapper](protocol-mapper/src/main/java/hamburg/schwartau/HelloWorldMapper.java), created by the [protocol-mapper project](protocol-mapper), to the keycloak instance.                                   
 
@@ -43,6 +43,7 @@ To check the token, we need to login. To get the tokens using the direct flow (n
 
     curl -d 'client_id=example-realm-client' -d 'username=jdoe' -d 'password=password' -d 'grant_type=password' 'http://localhost:11080/auth/realms/example-realm/protocol/openid-connect/token'
 
+Note that using the direct flow is only possible because we configured keycloak to allow it in the [`RealmSetup` class](data-setup/src/main/java/hamburg/schwartau/datasetup/bootstrap/RealmSetup.java).
 Response should be like:
 
     {
@@ -100,7 +101,7 @@ get something like the following:
       }
     }
 
-The value auf our own Hello World Token mapper got added to the token because
+The value auf our own [Hello World Token mapper](protocol-mappersrc/main/java/hamburg/schwartau/HelloWorldMapper.java) got added to the token because
 the message 'hello world' appears in the example.message field.
 
 ## Acknowledgements
