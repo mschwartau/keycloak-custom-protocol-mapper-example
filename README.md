@@ -11,8 +11,8 @@ shows how this can be done.
 
 ## Entrypoints into this project
 1. [data-setup](data-setup): Project to configure [Keycloak](https://www.keycloak.org/) via its REST API. Configures a realm so that it uses the example protocol mapper. Contains a main Methode which can be executed against a running [Keycloak](https://www.keycloak.org/) instance.
-2. [protocol-mapper](protocol-mapper): Contains the protocol mapper code. The resulting jar file will be deployed to [Keycloak](https://www.keycloak.org/). See the documentation in the code to see how it works.
-3. [Dockerfile](Dockerfile): Is based upon the official [Keycloak docker image](https://hub.docker.com/r/jboss/keycloak/). Adds the jar file containing the [protocol mapper]((protocol-mappersrc/main/java/hamburg/schwartau/HelloWorldMapper.java)), created by the [protocol-mapper project](protocol-mapper), to the keycloak instance.                                   
+2. [protocol-mapper](protocol-mapper): Contains the protocol mapper code. The resulting jar file will be deployed to [Keycloak](https://www.keycloak.org/). I tried to explain things needed in comments in the [protocol-mapper project](protocol-mapper)
+3. [Dockerfile](Dockerfile): Is based upon the official [Keycloak docker image](https://hub.docker.com/r/jboss/keycloak/). Adds the jar file containing the [protocol mapper](protocol-mapper/src/main/java/hamburg/schwartau/HelloWorldMapper.java), created by the [protocol-mapper project](protocol-mapper), to the keycloak instance.                                   
 
 ## Try it out
 
