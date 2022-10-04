@@ -1,5 +1,6 @@
 package hamburg.schwartau;
 
+import org.keycloak.models.ClientSessionContext;
 import org.keycloak.models.KeycloakSession;
 import org.keycloak.models.ProtocolMapperModel;
 import org.keycloak.models.UserSessionModel;
@@ -70,7 +71,11 @@ public class HelloWorldMapper extends AbstractOIDCProtocolMapper implements OIDC
     }
 
     @Override
-    protected void setClaim(final IDToken token, final ProtocolMapperModel mappingModel, final UserSessionModel userSession, final KeycloakSession keycloakSession) {
+    protected void setClaim(final IDToken token,
+                            final ProtocolMapperModel mappingModel,
+                            final UserSessionModel userSession,
+                            final KeycloakSession keycloakSession,
+                            final ClientSessionContext clientSessionCtx) {
         // adds our data to the token. Uses the parameters like the claim name which were set by the user
         // when this protocol mapper was configured in keycloak. Note that the parameters which can
         // be configured in keycloak for this protocol mapper were set in the static intializer of this class.

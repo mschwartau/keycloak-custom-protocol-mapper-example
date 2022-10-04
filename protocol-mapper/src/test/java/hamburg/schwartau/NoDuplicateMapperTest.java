@@ -1,7 +1,6 @@
 package hamburg.schwartau;
 
-import org.junit.Test;
-import org.keycloak.common.util.StreamUtil;
+import org.junit.jupiter.api.Test;
 import org.keycloak.protocol.ProtocolMapper;
 
 import java.util.Collection;
