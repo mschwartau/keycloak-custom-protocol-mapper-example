@@ -35,7 +35,7 @@ To try it out do the following things:
    This initial password for the admin user were configured in our [docker-compose](docker-compose.yml) file.
 4. You should see that the master and an example realm, which was added by the [data-setup](data-setup) module automatically, exists currently. For this example
    realm the [hello world mapper](protocol-mapper/src/main/java/hamburg/schwartau/HelloWorldMapper.java) is
-   configured: ![Keycloak screenshot](images/keycloak_mapper.png?raw=true "Keycloak screenshot")
+   configured (in [clients=>example-realm-client=>Client scopes=>dedicated](http://localhost:11080/auth/admin/master/console/#/example-realm/clients/example-realm-client/clientScopes/dedicated)): ![Keycloak screenshot](images/keycloak_mapper.png?raw=true "Keycloak screenshot")
 
 Now [Keycloak](https://www.keycloak.org/) is configured. As a next step we want to check the token.
 
@@ -51,13 +51,13 @@ the [`RealmSetup` class](data-setup/src/main/java/hamburg/schwartau/datasetup/bo
 Response should be like:
 
     {
-      "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJuY0dFQmhya0ZwekllaTdYYzlkRkkydWF3NGllS0plSzQ5YkNvMmtHc2xJIn0.eyJleHAiOjE2NjQ5MDUxODksImlhdCI6MTY2NDkwNDg4OSwianRpIjoiZTEwNzI3NmQtZDk3NS00MjIyLWJkYjUtNDgyY2Y5NzhhOTk4IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDoxMTA4MC9hdXRoL3JlYWxtcy9leGFtcGxlLXJlYWxtIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjRiOTUxNjZjLTQxMzctNGRkNi04YTBkLTM4OTI0MWVhNWMzYiIsInR5cCI6IkJlYXJlciIsImF6cCI6ImV4YW1wbGUtcmVhbG0tY2xpZW50Iiwic2Vzc2lvbl9zdGF0ZSI6IjU2YWQ5MjRmLWQzOGMtNDgwNy1iZTE1LTg2YTExZWFiOGM2YSIsImFjciI6IjEiLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1leGFtcGxlLXJlYWxtIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsInNpZCI6IjU2YWQ5MjRmLWQzOGMtNDgwNy1iZTE1LTg2YTExZWFiOGM2YSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwibmFtZSI6IkpvaG4gRG9lIiwiZ3JvdXBzIjpbXSwicHJlZmVycmVkX3VzZXJuYW1lIjoiamRvZSIsImdpdmVuX25hbWUiOiJKb2huIiwiZmFtaWx5X25hbWUiOiJEb2UiLCJleGFtcGxlIjp7Im1lc3NhZ2UiOiJoZWxsbyB3b3JsZCJ9fQ.PDU0YijUK9wDPeMwlxqXbw_FS9L6Q-e1rVrm2mZjLiBsrdb7cEw6JieitnMuJodHI3Y2OIkUsMt5j2jsbsegKJSPyw4VEGrBwYnx8GndhV0inhyYryDpLLpCDIpKpijpsi_QCX-jVncoUCPv9MwtAHh8oynCfjEQitu_qVEfYgGRQHBSqyABtpKx44MefBYZQn4qsKDGh6lhJ9Rv5hcaTyIaS8HVgq0zlU9L0PJ5IexhukFD9RR_pE4xECE2yd8kUzXL0XSileuGkpzS-P2JkIivGW5TeiFsDanMLbHGor4sZVgvT4ujiSxiAKCfLN17OT09dWtYtim7fzG0oGZpTw",
+      "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJYbl9PXzN6VHJpSjBzOE5RUzlpMVpBcF9pZVN2YXRwOHRIWmtpTGNwM1RrIn0.eyJleHAiOjE2NzExMzMzMjMsImlhdCI6MTY3MTEzMzAyMywianRpIjoiYTcwYjA4NjQtNmI3Mi00MjljLTliMDEtZWIzNzBhMTE5YTgzIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDoxMTA4MC9hdXRoL3JlYWxtcy9leGFtcGxlLXJlYWxtIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjkxMmNkZmJhLWNlNGQtNDgzMS04NjA3LWQzM2VmOTkzOTdmYyIsInR5cCI6IkJlYXJlciIsImF6cCI6ImV4YW1wbGUtcmVhbG0tY2xpZW50Iiwic2Vzc2lvbl9zdGF0ZSI6ImRlMzljN2M2LTM0ZWMtNGM4MC1iZTM2LWIyODE4YTkxMjMyYyIsImFjciI6IjEiLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1leGFtcGxlLXJlYWxtIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsInNpZCI6ImRlMzljN2M2LTM0ZWMtNGM4MC1iZTM2LWIyODE4YTkxMjMyYyIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwibmFtZSI6IkpvaG4gRG9lIiwiZ3JvdXBzIjpbXSwicHJlZmVycmVkX3VzZXJuYW1lIjoiamRvZSIsImdpdmVuX25hbWUiOiJKb2huIiwiZmFtaWx5X25hbWUiOiJEb2UiLCJleGFtcGxlIjp7Im1lc3NhZ2UiOiJoZWxsbyB3b3JsZCJ9fQ.wZI33cy6X2yxnsz1HeU3snrPi8xg1Pq8TiNIxPfP-RLtPQm5-3of9kTFXNvtZkA2Om3rzlI_NfyYy8eq4VArujVvvkKx5oxGZ0Q9Tv6LU0ufS4YfW0t0oAbEdNmONBXUszcl_HKX_5Pnvbs7DwR04ErAmzguECnky9hdYy0nJREnfrTwr6Ss270H8HaQ-DJ1T4x-iFzuwRkQZTg_PUfRxts0tjsIRehFPxadLujj4ZpsguvfXqCD11Gb4a2xXSm6S2iDP8sa_zwaWCbRDraBUCcEy192hADDNVDBQPYgUe-0Sj7z_mPNviEiMagAmBFCj8W-czkEWwnX_WodeVThWA",
       "expires_in": 300,
       "refresh_expires_in": 1800,
-      "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJjYmM0MjU2OC1lMjMxLTQxZGEtYmVmYS0yMjg3NTg1NTc2MGQifQ.eyJleHAiOjE2NjQ5MDY2ODksImlhdCI6MTY2NDkwNDg4OSwianRpIjoiMWQyNzVlM2YtYzQzMi00NzZlLWFkNjMtMmIxM2I1YmE0NTVhIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDoxMTA4MC9hdXRoL3JlYWxtcy9leGFtcGxlLXJlYWxtIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDoxMTA4MC9hdXRoL3JlYWxtcy9leGFtcGxlLXJlYWxtIiwic3ViIjoiNGI5NTE2NmMtNDEzNy00ZGQ2LThhMGQtMzg5MjQxZWE1YzNiIiwidHlwIjoiUmVmcmVzaCIsImF6cCI6ImV4YW1wbGUtcmVhbG0tY2xpZW50Iiwic2Vzc2lvbl9zdGF0ZSI6IjU2YWQ5MjRmLWQzOGMtNDgwNy1iZTE1LTg2YTExZWFiOGM2YSIsInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsInNpZCI6IjU2YWQ5MjRmLWQzOGMtNDgwNy1iZTE1LTg2YTExZWFiOGM2YSJ9.3kXlED7h6Wj68yV3pp4dQ1-6N0USu161eiyRV5YaAlY",
+      "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIzODE5NTdiZi1jMzI0LTQ3M2UtOTA4MS1lN2MxODVmMzllYjUifQ.eyJleHAiOjE2NzExMzQ4MjMsImlhdCI6MTY3MTEzMzAyMywianRpIjoiYWM4Njk0NzktYzY2Yi00YWIwLWIzYzQtZDc1ZjU0NWZmOTk3IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDoxMTA4MC9hdXRoL3JlYWxtcy9leGFtcGxlLXJlYWxtIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDoxMTA4MC9hdXRoL3JlYWxtcy9leGFtcGxlLXJlYWxtIiwic3ViIjoiOTEyY2RmYmEtY2U0ZC00ODMxLTg2MDctZDMzZWY5OTM5N2ZjIiwidHlwIjoiUmVmcmVzaCIsImF6cCI6ImV4YW1wbGUtcmVhbG0tY2xpZW50Iiwic2Vzc2lvbl9zdGF0ZSI6ImRlMzljN2M2LTM0ZWMtNGM4MC1iZTM2LWIyODE4YTkxMjMyYyIsInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsInNpZCI6ImRlMzljN2M2LTM0ZWMtNGM4MC1iZTM2LWIyODE4YTkxMjMyYyJ9.AKWuXIuq__KzZC32GrGlhbDe_gZkyQsqKRSIDBKSgJQ",
       "token_type": "Bearer",
       "not-before-policy": 0,
-      "session_state": "56ad924f-d38c-4807-be15-86a11eab8c6a",
+      "session_state": "de39c7c6-34ec-4c80-be36-b2818a91232c",
       "scope": "email profile"
     }
 
@@ -65,34 +65,34 @@ Then copy the `access_token` value and decode it, e.g. by using [jwt.io](https:/
 get something like the following:
 
       {
-         "exp": 1664905189,
-         "iat": 1664904889,
-         "jti": "e107276d-d975-4222-bdb5-482cf978a998",
+         "exp": 1671133323,
+         "iat": 1671133023,
+         "jti": "a70b0864-6b72-429c-9b01-eb370a119a83",
          "iss": "http://localhost:11080/auth/realms/example-realm",
          "aud": "account",
-         "sub": "4b95166c-4137-4dd6-8a0d-389241ea5c3b",
+         "sub": "912cdfba-ce4d-4831-8607-d33ef99397fc",
          "typ": "Bearer",
          "azp": "example-realm-client",
-         "session_state": "56ad924f-d38c-4807-be15-86a11eab8c6a",
+         "session_state": "de39c7c6-34ec-4c80-be36-b2818a91232c",
          "acr": "1",
          "realm_access": {
-         "roles": [
-            "default-roles-example-realm",
-            "offline_access",
-            "uma_authorization"
-         ]
+            "roles": [
+               "default-roles-example-realm",
+               "offline_access",
+               "uma_authorization"
+            ]
          },
          "resource_access": {
             "account": {
                "roles": [
-               "manage-account",
-               "manage-account-links",
-               "view-profile"
+                  "manage-account",
+                  "manage-account-links",
+                  "view-profile"
                ]
             }
          },
          "scope": "email profile",
-         "sid": "56ad924f-d38c-4807-be15-86a11eab8c6a",
+         "sid": "de39c7c6-34ec-4c80-be36-b2818a91232c",
          "email_verified": false,
          "name": "John Doe",
          "groups": [],

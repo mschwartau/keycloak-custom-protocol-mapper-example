@@ -1,4 +1,4 @@
-ARG KEYCLOAK_IMAGE="quay.io/keycloak/keycloak:19.0.1"
+ARG KEYCLOAK_IMAGE="quay.io/keycloak/keycloak:20.0.2"
 
 # Build protocoll mapper so that it always has the current version
 FROM maven:3.8 as jdk-builder
@@ -44,5 +44,4 @@ USER 1000
 
 ENTRYPOINT ["/app/docker-entrypoint.sh"]
 
-# We disabled the new admin ui because we didn't find protocol mappers in it, even though they should be there. See https://github.com/keycloak/keycloak-ui/issues/2511
-CMD ["--verbose", "start-dev", "--features-disabled=admin2", "--http-enabled=true", "--http-relative-path=/auth", "--http-port=8080", "--hostname-strict=false", "--hostname-strict-https=false"]
+CMD ["--verbose", "start-dev", "--http-enabled=true", "--http-relative-path=/auth", "--http-port=8080", "--hostname-strict=false", "--hostname-strict-https=false"]
